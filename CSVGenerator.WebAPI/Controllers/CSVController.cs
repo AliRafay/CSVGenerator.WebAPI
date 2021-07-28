@@ -22,10 +22,10 @@ namespace CSVGenerator.WebAPI.Controllers
             this.csvService = csvService;
         }
 
-        [HttpPost("{DLLPath}")]
-        public async Task<IActionResult> GenerateEnumPdf(string DLLPath,[FromBody] RequestDto request)
+        [HttpPost("{path}")]
+        public async Task<IActionResult> GenerateEnumPdf(string path, [FromBody] RequestDto request)
         {
-            (string zipPath, string zipName) = await csvService.GenerateEnumCsvAsync(DLLPath, request);
+            (string zipPath, string zipName) = await csvService.GenerateEnumCsvAsync(path, request);
             var stream = System.IO.File.OpenRead(zipPath);
             var contentType = new FileExtensionContentTypeProvider().TryGetContentType(zipPath, out var mimeType) ? mimeType : MediaTypeNames.Application.Octet;
             return File(stream, contentType, zipName);
