@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CSVGenerator.Services\CSVGenerator.Services.csproj" />
-    <ProjectReference Include="..\CSVGenerator\CSVGenerator.Services\CSVGenerator.Services.csproj" />
   </ItemGroup>
 
 </Project>
