@@ -14,10 +14,10 @@ namespace CSVGenerator.WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class EnumController : ControllerBase
+    public class CSVController : ControllerBase
     {
         ICSVService csvService;
-        public EnumController(ICSVService csvService)
+        public CSVController(ICSVService csvService)
         {
             this.csvService = csvService;
         }
