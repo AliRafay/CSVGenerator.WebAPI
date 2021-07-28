@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CSVGenerator.Services;
+using CSVGenerator.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +34,7 @@ namespace CSVGenerator.WebAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CSVGenerator.WebAPI", Version = "v1" });
             });
+            services.AddTransient<ICSVService, CSVService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
